@@ -8,20 +8,28 @@ export const Container = styled.div`
 
 export const Center = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
   max-width: 1000px;
   min-height: 100vh;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+  flex-wrap: wrap;
 `;
 
 export const Section1 = styled.div`
   display: flex;
+  align-items: center;
+  flex: 1;
   flex-direction: column;
-  max-width: 300px;
   margin-left: 50px;
+  /* width: 300px; */
   background-color: #e9e9e9;
   justify-content: space-between;
+
+  @media (max-width: 654px) {
+    margin-left: 0;
+  }
 `;
 
 export const ImgProfile = styled.div`
@@ -35,7 +43,6 @@ export const ImgProfile = styled.div`
   background-color: #222;
   position: relative;
   padding: 40px 20px 300px 20px;
-  margin-bottom: 30px;
 
   img {
     width: 270px;
@@ -66,24 +73,47 @@ export const Position = styled.div`
 
 export const ContactMe = styled.div`
   padding: 0 50px;
+  margin-bottom: 30px;
+`;
+
+export const ItemContact = styled.div`
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 14px;
+  gap: 10px;
+  margin-bottom: 8px;
+
+  a {
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    color: #222;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Education = styled.div`
   flex: 1;
+  width: 300px;
   padding: 100px 30px 30px 30px;
   border-radius: 150px 150px 0 0;
   background-color: #222;
 `;
 
 export const Section2 = styled.div`
-  flex: 1;
-  padding: 50px;
+  flex: 2;
+  min-width: 300px;
+  padding: 0 50px 50px 50px;
 `;
 
 export const ContentTitle = styled.div`
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 `;
 
 export const Title = styled.div`
@@ -122,5 +152,13 @@ export const Info = styled.div`
   color: #333;
   font-size: 18px;
   text-align: justify;
+  margin-bottom: 50px;
+`;
+
+export const InfoInvert = styled.div`
+  color: #fff;
+  font-size: 15px;
+  text-align: justify;
+  margin-top: 20px;
   margin-bottom: 50px;
 `;

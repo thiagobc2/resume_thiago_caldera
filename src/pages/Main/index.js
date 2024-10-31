@@ -8,7 +8,6 @@ import {
   FaGlobeAmericas,
   FaFlagCheckered,
   FaBookReader,
-  FaUsers,
   FaLinkedin,
   FaGithubSquare,
   FaPhoneSquareAlt,

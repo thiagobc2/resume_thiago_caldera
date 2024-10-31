@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/thiagocaldera.site/static/css/main.8803d39c.css",
-    "main.js": "/thiagocaldera.site/static/js/main.a32bb8ff.js",
-    "static/js/453.0f43eda0.chunk.js": "/thiagocaldera.site/static/js/453.0f43eda0.chunk.js",
-    "index.html": "/thiagocaldera.site/index.html",
-    "main.8803d39c.css.map": "/thiagocaldera.site/static/css/main.8803d39c.css.map",
-    "main.a32bb8ff.js.map": "/thiagocaldera.site/static/js/main.a32bb8ff.js.map",
-    "453.0f43eda0.chunk.js.map": "/thiagocaldera.site/static/js/453.0f43eda0.chunk.js.map"
+    "main.css": "/resume_thiago_caldera/static/css/main.8803d39c.css",
+    "main.js": "/resume_thiago_caldera/static/js/main.3258f89a.js",
+    "static/js/453.0f43eda0.chunk.js": "/resume_thiago_caldera/static/js/453.0f43eda0.chunk.js",
+    "index.html": "/resume_thiago_caldera/index.html",
+    "main.8803d39c.css.map": "/resume_thiago_caldera/static/css/main.8803d39c.css.map",
+    "main.3258f89a.js.map": "/resume_thiago_caldera/static/js/main.3258f89a.js.map",
+    "453.0f43eda0.chunk.js.map": "/resume_thiago_caldera/static/js/453.0f43eda0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8803d39c.css",
-    "static/js/main.a32bb8ff.js"
+    "static/js/main.3258f89a.js"
   ]
 }

@@ -13,6 +13,7 @@ export const Container = styled.div`
   }
 `;
 
+export const Li = styled.li``;
 export const Item = styled.p`
   font-size: 16px;
   font-weight: bold;

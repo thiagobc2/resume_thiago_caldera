@@ -5,8 +5,8 @@ import * as S from "./style";
 export default function ListRating(props) {
   return (
     <S.Container>
-      {props.items?.map((item) => (
-        <S.Item key={item}>
+      {props.items?.map((item, index) => (
+        <S.Item key={index}>
           {item.name}
           <progress
             value={item.rating < 5 ? item.rating : 5}

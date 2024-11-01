@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import html2pdf from "html2pdf.js";
 
 import {
   FaUser,
@@ -11,6 +12,7 @@ import {
   FaLinkedin,
   FaGithubSquare,
   FaPhoneSquareAlt,
+  FaDownload,
 } from "react-icons/fa";
 
 import * as S from "./style";
@@ -18,6 +20,8 @@ import ItemJob from "../../components/ItemJob";
 import ItemEducation from "../../components/ItemEducation";
 import ListMakers from "../../components/ListMakers";
 import ListRating from "../../components/ListRating";
+
+import photoProfile from "../../assets/photoprofile.jpeg";
 
 export default function Main() {
   const [contact] = useState({
@@ -34,7 +38,6 @@ export default function Main() {
     "JOGAR BOLA",
     "PESCAR",
   ]);
-
   const [jobs] = useState([
     {
       id: 1,
@@ -150,17 +153,33 @@ export default function Main() {
     },
   ]);
 
+  // Use o useRef para acessar o elemento que queremos converter em PDF
+  const curriculoRef = useRef();
+
+  const generatePDF = () => {
+    // Configurações para o PDF
+    const options = {
+      margin: 0.5,
+      filename: "Curriculo.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+    };
+
+    // Gera o PDF do elemento referenciado
+    setTimeout(() => {
+      html2pdf().set(options).from(curriculoRef.current).save();
+    }, 500);
+  };
+
   return (
     <S.Container>
-      <S.Center>
+      <S.Center ref={curriculoRef} id="curriculo">
         <S.Section1>
           <S.ImgProfile>
             <S.Name>THIAGO B. CALDERA</S.Name>
             <S.Position>DESENVOLVEDOR FRONTEND</S.Position>
-            <img
-              src="https://media.licdn.com/dms/image/v2/D4D03AQELaCRghX_btw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1666105132452?e=1735776000&v=beta&t=faxscGFKhKIoJLT1vc5A9FcErEp3YGhxkrUpZlnjxjc"
-              alt=""
-            />
+            <img src={photoProfile} alt="" />
           </S.ImgProfile>
           <S.ContactMe>
             <S.ContentTitle>
@@ -169,19 +188,20 @@ export default function Main() {
               </S.CircleIcon>
               <S.Title>CONTATO</S.Title>
             </S.ContentTitle>
+
             <S.ItemContact>
               <a href="https://whatsa.me/5568981087475/?t=Ol%C3%A1%20tudo%20bem!">
                 <FaPhoneSquareAlt />
                 {contact.phone}
               </a>
             </S.ItemContact>
-            <S.ItemContact style={{ "font-size": "12px" }}>
+            <S.ItemContact style={{ fontSize: "12px" }}>
               <a
                 href="https://www.linkedin.com/in/thiagobc2/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaLinkedin style={{ "font-size": "14px" }} />
+                <FaLinkedin style={{ fontSize: "14px" }} />
                 {contact.linkedin}
               </a>
             </S.ItemContact>
@@ -196,7 +216,8 @@ export default function Main() {
               </a>
             </S.ItemContact>
           </S.ContactMe>
-          <S.Education>
+
+          <S.Aboutme>
             <S.ContentTitle>
               <S.CircleIcoInvert>
                 <FaUserTie />
@@ -210,18 +231,24 @@ export default function Main() {
               que eu esteja, busco sempre deixar uma marca positiva, agregando
               valor com dedicação e foco em resultados
             </S.InfoInvert>
-          </S.Education>
+          </S.Aboutme>
         </S.Section1>
 
         <S.Section2>
+          <S.ContentDownload>
+            <S.BtnDownload onClick={generatePDF}>
+              <FaDownload />
+              Baixar PDF
+            </S.BtnDownload>
+          </S.ContentDownload>
           <S.ContentTitle>
             <S.CircleIcon>
               <FaBookReader />
             </S.CircleIcon>
             <S.Title>EDUCAÇÃO</S.Title>
           </S.ContentTitle>
-          {educations.map((education) => (
-            <ItemEducation {...education} />
+          {educations.map((education, index) => (
+            <ItemEducation key={education.id} {...education} />
           ))}
           <S.ContentTitle>
             <S.CircleIcon>
@@ -230,7 +257,7 @@ export default function Main() {
             <S.Title>EXPERIÊNCIA PROFISSIONAL</S.Title>
           </S.ContentTitle>
           {jobs.map((job) => (
-            <ItemJob {...job} />
+            <ItemJob key={job.id} {...job} />
           ))}
           <S.ContentTitle>
             <S.CircleIcon>

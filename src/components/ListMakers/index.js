@@ -6,10 +6,10 @@ export default function ListMakers(props) {
   return (
     <S.Container>
       <ul>
-        {props.items?.map((item) => (
-          <li key={item}>
+        {props.items?.map((item, index) => (
+          <S.Li key={index}>
             <S.Item>{item}</S.Item>
-          </li>
+          </S.Li>
         ))}
       </ul>
     </S.Container>

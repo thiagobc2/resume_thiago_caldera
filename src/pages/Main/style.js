@@ -17,6 +17,26 @@ export const Center = styled.div`
   flex-wrap: wrap;
 `;
 
+export const ContentDownload = styled.div`
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  padding-top: 20px;
+`;
+export const BtnDownload = styled.button`
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background-color: green;
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+  }
+`;
+
 export const Section1 = styled.div`
   display: flex;
   align-items: center;
@@ -95,7 +115,7 @@ export const ItemContact = styled.div`
   }
 `;
 
-export const Education = styled.div`
+export const Aboutme = styled.div`
   flex: 1;
   width: 300px;
   padding: 100px 30px 30px 30px;

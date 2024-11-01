@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  page-break-inside: avoid;
+  break-inside: avoid;
+`;
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -24,8 +27,9 @@ export const Position = styled.div`
   font-style: italic;
   letter-spacing: 1px;
   margin-bottom: 10px;
+  page-break-inside: avoid;
 `;
-export const Ecosystem = styled.div`
+export const Ecosystem = styled.p`
   color: #222;
   font-size: 12px;
   letter-spacing: 1px;

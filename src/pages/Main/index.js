@@ -11,7 +11,7 @@ import {
   FaBookReader,
   FaLinkedin,
   FaGithubSquare,
-  FaPhoneSquareAlt,
+  FaWhatsappSquare,
   FaDownload,
 } from "react-icons/fa";
 
@@ -24,6 +24,7 @@ import ListRating from "../../components/ListRating";
 import photoProfile from "../../assets/photoprofile.jpeg";
 
 export default function Main() {
+  const downloadButtonRef = useRef();
   const [contact] = useState({
     phone: "+55 (68) 981087475",
     linkedin: "www.linkedin.com/in/thiagobc2",
@@ -36,7 +37,6 @@ export default function Main() {
     "LER LIVROS",
     "VIAJAR",
     "JOGAR BOLA",
-    "PESCAR",
   ]);
   const [jobs] = useState([
     {
@@ -157,6 +157,10 @@ export default function Main() {
   const curriculoRef = useRef();
 
   const generatePDF = () => {
+    if (downloadButtonRef.current) {
+      console.log("xxxxxxxxx");
+      downloadButtonRef.current.style.display = "none";
+    }
     // Configurações para o PDF
     const options = {
       margin: 0.5,
@@ -168,7 +172,16 @@ export default function Main() {
 
     // Gera o PDF do elemento referenciado
     setTimeout(() => {
-      html2pdf().set(options).from(curriculoRef.current).save();
+      html2pdf()
+        .set(options)
+        .from(curriculoRef.current)
+        .save()
+        .then(() => {
+          // Coloque a função que você quer chamar aqui
+          if (downloadButtonRef.current) {
+            downloadButtonRef.current.style.display = "block";
+          }
+        });
     }, 500);
   };
 
@@ -177,70 +190,72 @@ export default function Main() {
       <S.Center ref={curriculoRef} id="curriculo">
         <S.Section1>
           <S.ImgProfile>
+            <S.ContentDownload>
+              <S.BtnDownload ref={downloadButtonRef} onClick={generatePDF}>
+                <FaDownload />
+                Baixar Curriculo em PDF
+              </S.BtnDownload>
+            </S.ContentDownload>
             <S.Name>THIAGO B. CALDERA</S.Name>
             <S.Position>DESENVOLVEDOR FRONTEND</S.Position>
             <img src={photoProfile} alt="" />
           </S.ImgProfile>
-          <S.ContactMe>
-            <S.ContentTitle>
-              <S.CircleIcon>
-                <FaUser />
-              </S.CircleIcon>
-              <S.Title>CONTATO</S.Title>
-            </S.ContentTitle>
+          <S.ContentContactMeAboutMe>
+            <S.ContactMe>
+              <S.ContentTitle>
+                <S.CircleIcon>
+                  <FaUser />
+                </S.CircleIcon>
+                <S.Title>CONTATO</S.Title>
+              </S.ContentTitle>
 
-            <S.ItemContact>
-              <a href="https://whatsa.me/5568981087475/?t=Ol%C3%A1%20tudo%20bem!">
-                <FaPhoneSquareAlt />
-                {contact.phone}
-              </a>
-            </S.ItemContact>
-            <S.ItemContact style={{ fontSize: "12px" }}>
-              <a
-                href="https://www.linkedin.com/in/thiagobc2/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaLinkedin style={{ fontSize: "14px" }} />
-                {contact.linkedin}
-              </a>
-            </S.ItemContact>
-            <S.ItemContact>
-              <a
-                href="https://github.com/thiagobc2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithubSquare />
-                {contact.github}
-              </a>
-            </S.ItemContact>
-          </S.ContactMe>
+              <S.ItemContact>
+                <a href="https://whatsa.me/5568981087475/?t=Ol%C3%A1%20tudo%20bem!">
+                  <FaWhatsappSquare style={{ color: "#00a884" }} />
+                  {contact.phone}
+                </a>
+              </S.ItemContact>
+              <S.ItemContact>
+                <a
+                  href="https://www.linkedin.com/in/thiagobc2/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaLinkedin style={{ color: "#0a66c2" }} />
+                  {contact.linkedin}
+                </a>
+              </S.ItemContact>
+              <S.ItemContact>
+                <a
+                  href="https://github.com/thiagobc2"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGithubSquare />
+                  {contact.github}
+                </a>
+              </S.ItemContact>
+            </S.ContactMe>
 
-          <S.Aboutme>
-            <S.ContentTitle>
-              <S.CircleIcoInvert>
-                <FaUserTie />
-              </S.CircleIcoInvert>
-              <S.Title style={{ color: "white" }}>SOBRE MIM</S.Title>
-            </S.ContentTitle>
-            <S.InfoInvert>
-              Sou um entusiasta da tecnologia com vasta experiência com
-              front-end, tendo atuado em empresas de destaque como Bradesco,
-              Elofy, Synvia. Domino frameworks como React e Angular e, onde quer
-              que eu esteja, busco sempre deixar uma marca positiva, agregando
-              valor com dedicação e foco em resultados
-            </S.InfoInvert>
-          </S.Aboutme>
+            <S.Aboutme>
+              <S.ContentTitle>
+                <S.CircleIcon>
+                  <FaUserTie />
+                </S.CircleIcon>
+                <S.Title>SOBRE MIM</S.Title>
+              </S.ContentTitle>
+              <S.Info>
+                Sou um entusiasta da tecnologia com vasta experiência com
+                front-end, tendo atuado em empresas de destaque como Bradesco,
+                Elofy, Synvia. Domino frameworks como React e Angular e, onde
+                quer que eu esteja, busco sempre deixar uma marca positiva,
+                agregando valor com dedicação e foco em resultados
+              </S.Info>
+            </S.Aboutme>
+          </S.ContentContactMeAboutMe>
         </S.Section1>
 
         <S.Section2>
-          <S.ContentDownload>
-            <S.BtnDownload onClick={generatePDF}>
-              <FaDownload />
-              Baixar PDF
-            </S.BtnDownload>
-          </S.ContentDownload>
           <S.ContentTitle>
             <S.CircleIcon>
               <FaBookReader />

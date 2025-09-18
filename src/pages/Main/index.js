@@ -140,7 +140,7 @@ export default function Main() {
       company: "VISA TERCEIRIZAÇÃO (POLICIA FEDERAL)",
       period: "2009 - 2010",
       position: "Setor de Informática",
-      ecosystem: "HTML | PHP | JAVASCRIPT | CSS | MYSQL",
+      ecosystem: "HTML | PHP | JAVASCRIPT | CSS | MYSQL ",
       description:
         "Durante meu tempo na Polícia Federal, gerenciei o setor de informática, onde fui responsável pelo desenvolvimento de sistemas em PHP que atendiam às necessidades operacionais da instituição. Além de liderar a criação e implementação dessas soluções, administrei a rede e cuidei de toda a infraestrutura de TI, garantindo a segurança e a eficiência dos sistemas. Essa experiência me permitiu aprimorar minhas habilidades em gerenciamento de projetos e infraestrutura, além de contribuir para a otimização dos processos internos e a melhoria na prestação de serviços da Polícia Federal.",
     },

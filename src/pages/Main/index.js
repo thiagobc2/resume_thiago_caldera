@@ -89,7 +89,7 @@ export default function Main() {
     {
       id: 6,
       company: "PASQUALI SOLUTIONS (ELOFY/ZUCCHETI)",
-      period: "JUL/2021 - DEZ/2022",
+      period: "JUL/2021 - DEZ/2021",
       position: "Desenvolvedor Front-End Sênior",
       ecosystem:
         "ANGULARJS | REACTJS | NEXTJS | TYPESCRIPT | TESTE | SCRUM | GITFLOW | BITBUCKET | JIRA | DOCKER ",

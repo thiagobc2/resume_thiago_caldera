@@ -4,32 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  progress {
-    -webkit-appearance: none; /* Remove o estilo padrão no Chrome/Safari */
-    appearance: none; /* Remove o estilo padrão em outros navegadores */
-    width: 100px; /* Largura da barra de progresso */
-    height: 6px; /* Altura da barra de progresso */
-    border-radius: 5px; /* Cantos arredondados */
-    background-color: #b9b9b9; /* Cor de fundo da barra */
-  }
-
-  /* Estilo para a parte preenchida da barra de progresso */
-  progress::-webkit-progress-value {
-    background-color: #333; /* Cor da parte preenchida */
-    border-radius: 5px; /* Arredondar os cantos */
-  }
-
-  /* Estilo para a parte não preenchida da barra de progresso */
-  progress::-webkit-progress-bar {
-    background-color: #b9b9b9; /* Cor da parte não preenchida */
-    border-radius: 5px; /* Arredondar os cantos */
-  }
-
-  /* Firefox */
-  progress::-moz-progress-bar {
-    background-color: #999; /* Cor da parte preenchida */
-    border-radius: 5px; /* Arredondar os cantos */
-  }
 `;
 
 export const Item = styled.p`
@@ -45,4 +19,20 @@ export const Item = styled.p`
   padding: 5px 20px;
   border-radius: 20px;
   background-color: #e9e9e9;
+`;
+
+export const BarContainer = styled.div`
+  width: 100px;
+  height: 8px;
+  background-color: #b9b9b9;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+`;
+
+export const BarFill = styled.div`
+  height: 100%;
+  background-color: #333;
+  border-radius: 5px 0 0 5px;
+  transition: width 0.3s;
 `;

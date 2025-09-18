@@ -38,14 +38,16 @@ export const BtnDownload = styled.button`
 
 export const Section1 = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: stretch;
   flex: 1;
   gap: 50px;
   padding: 0 50px;
   background-color: #e9e9e9;
 
   @media (max-width: 654px) {
+    flex-direction: column;
     margin-left: 0;
     padding: 0;
     gap: 0;
@@ -56,17 +58,21 @@ export const ImgProfile = styled.div`
   display: flex;
   flex: 1;
   min-width: 300px;
+  max-width: 250px;
   align-items: center;
   flex-direction: column;
   background-color: #222;
   padding: 40px 20px;
 
-  img {
-    width: 80%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 8px solid #fff;
-  }
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid #fff;
+      display: block;
+      margin: 0 auto;
+    }
 `;
 
 export const Name = styled.p`
@@ -134,6 +140,11 @@ export const ContentTitle = styled.div`
   gap: 10px;
   margin-top: 50px;
   margin-bottom: 20px;
+  /* Evita quebra de página após o título de experiências */
+  &.no-break {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
 `;
 
 export const Title = styled.div`

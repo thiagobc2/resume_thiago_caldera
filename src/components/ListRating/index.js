@@ -8,10 +8,9 @@ export default function ListRating(props) {
       {props.items?.map((item, index) => (
         <S.Item key={index}>
           {item.name}
-          <progress
-            value={item.rating < 5 ? item.rating : 5}
-            max={5}
-          ></progress>
+          <S.BarContainer>
+            <S.BarFill style={{ width: `${(item.rating < 5 ? item.rating : 5) * 20}%` }} />
+          </S.BarContainer>
         </S.Item>
       ))}
     </S.Container>
